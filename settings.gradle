@@ -1,0 +1,6 @@
+rootProject.name = 'cashx2'
+include 'core'
+include 'desktop'
+include 'core'
+include 'common'
+
