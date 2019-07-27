@@ -19,7 +19,7 @@ public class Hash {
         return instance;
     }
 
-    private static String generateStorngPrivateKeyHash(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    private static String generateStrongPrivateKeyHash(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         int iterations = 1000;
         char[] chars = privateKey.toCharArray();
         byte[] salt = getSalt();
