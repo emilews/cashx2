@@ -1,5 +1,5 @@
 # CashX: A DEX for Bitcoin Cash 
-   ![CashX_Logo](https://github.com/emilews/cashx2/tree/master/desktop/src/main/resources/cashX_logo_V3_big.png "CashX Logo")
+   ![CashX_Logo](https://github.com/emilews/cashx2/tree/master/desktop/src/main/resources/images/cashX_logo_V3_big.png "CashX Logo")
 ## What is this?
    A direct sequel to CashX, the one based on Bisq.
 ## Development
