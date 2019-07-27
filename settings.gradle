@@ -3,4 +3,5 @@ include 'core'
 include 'desktop'
 include 'core'
 include 'common'
+include 'assets'
 

@@ -2,11 +2,9 @@ package cashx2.common.configurations;
 
 public class Version {
     private static Version instance;
-
-
     private Version() {
+        //Nothing
     }
-
     public static Version getInstance() {
         if(instance == null){
             instance = new Version();
