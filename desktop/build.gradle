@@ -10,6 +10,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven{ url 'https://jitpack.io'}
 }
 javafx {
     version = "12"
@@ -19,5 +20,6 @@ javafx {
 
 dependencies {
     implementation project(':common')
+    implementation group: 'com.github.softwareverde', name: 'bitcoin-verde', version: 'development-SNAPSHOT'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

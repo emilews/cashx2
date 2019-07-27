@@ -20,12 +20,15 @@ public class WholePreloader extends Preloader {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.preloaderStage = primaryStage;
-        System.out.println(getClass().getResource("/images"));
+
         Image logo = new Image(getClass().getResourceAsStream("/images/cashX_logo_V3_big.png"));
+        Image icon = new Image(getClass().getResourceAsStream("/images/icon.png"));
+        primaryStage.getIcons().add(icon);
         ImageView imageView = new ImageView(logo);
         StackPane sp = new StackPane();
         sp.getChildren().addAll(imageView);
         Scene scene = new Scene(sp, width,height);
+        primaryStage.setTitle("CashX");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00bccf64-7f40-4feb-8a24-f997e0ce3da0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/desktop/build/resources/main/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/desktop/src/main/resources/images/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/classes/java/main/cashx2/common/configurations/Version.class" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/classes/java/main/cashx2/common/configurations/Version.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/Version.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/Version.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/build/classes/java/main/cashx2/app/AppMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/classes/java/main/cashx2/app/AppMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/WholePreloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/WholePreloader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,9 +64,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../bitcoin-verde/build.gradle" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.31333333" />
     <property name="settings.editor.selected.configurable" value="Settings.Markdown" />
   </component>
   <component name="RunDashboard">
@@ -161,7 +163,8 @@
       <workItem from="1564018512239" duration="299000" />
       <workItem from="1564019143508" duration="3370000" />
       <workItem from="1564086418680" duration="7190000" />
-      <workItem from="1564173087463" duration="11577000" />
+      <workItem from="1564173087463" duration="13882000" />
+      <workItem from="1564198750433" duration="3358000" />
     </task>
     <servers />
   </component>

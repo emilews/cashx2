@@ -5,7 +5,7 @@ public class AppConfiguration {
     private AppConfiguration() {
         //Nothing
     }
-    public static AppConfiguration getInstance() {
+    public static synchronized AppConfiguration getInstance() {
         if(instance == null){
             instance = new AppConfiguration();
         }
@@ -23,4 +23,10 @@ public class AppConfiguration {
 
     private final int width = 1024;
     private final int height = 650;
+
+    public String getAppdata() {
+        return appdata;
+    }
+
+    private final String appdata = System.getenv("APPDATA") +"\\CashX2";
 }
