@@ -19,7 +19,7 @@ public class Hash {
         return instance;
     }
 
-    private static String generateStrongPrivateKeyHash(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public String generateStrongPrivateKeyHash(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         int iterations = 1000;
         char[] chars = privateKey.toCharArray();
         byte[] salt = getSalt();
@@ -47,7 +47,7 @@ public class Hash {
             return hex;
         }
     }
-    private static boolean validatePubKey(String decKey, String storedKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public boolean validatePubKey(String decKey, String storedKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         String[] parts = storedKey.split(":");
         int iterations = Integer.parseInt(parts[0]);
         byte[] salt = fromHex(parts[1]);

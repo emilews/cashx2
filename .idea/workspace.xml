@@ -4,8 +4,7 @@
     <list default="true" id="00bccf64-7f40-4feb-8a24-f997e0ce3da0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/common/build/libs/common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/build/classes/java/main/cashx2/app/AppMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/build/classes/java/main/cashx2/app/AppMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/security/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/security/Hash.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +156,7 @@
       <workItem from="1564019143508" duration="3370000" />
       <workItem from="1564086418680" duration="7190000" />
       <workItem from="1564173087463" duration="13882000" />
-      <workItem from="1564198750433" duration="6908000" />
+      <workItem from="1564198750433" duration="7497000" />
     </task>
     <servers />
   </component>
