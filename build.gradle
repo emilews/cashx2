@@ -7,9 +7,11 @@ group 'com.emilews.cashx2'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
 }
 javafx {
     version = "12"
