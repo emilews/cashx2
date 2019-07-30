@@ -4,7 +4,6 @@ package cashx2.app;
 import cashx2.common.security.Hash;
 import com.softwareverde.bitcoin.address.AddressInflater;
 import com.softwareverde.bitcoin.secp256k1.key.PrivateKey;
-import com.softwareverde.bitcoin.secp256k1.key.PublicKey;
 import com.softwareverde.constable.bytearray.ByteArray;
 import com.softwareverde.util.HexUtil;
 import javafx.application.Application;
@@ -66,11 +65,8 @@ public class AppMain extends Application {
             String hex = HexUtil.toHexString(pK.toString().getBytes());
             ByteArray byteArray = ByteArray.fromHexString(hex);
             privateKey = PrivateKey.fromBytes(byteArray);
-            AddressInflater addressInflater = new AddressInflater();
-            address = addressInflater.fromPrivateKey(privateKey).toBase58CheckEncoded();
+
         }
-
-
     }
 
     @Override
