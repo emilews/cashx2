@@ -1,27 +1,22 @@
 package cashx2.app;
 
 
+import cashx2.common.configurations.AppConfiguration;
+import cashx2.common.configurations.Version;
 import cashx2.core.bch.BchWallet;
-import com.softwareverde.bitcoin.address.AddressInflater;
-import com.softwareverde.bitcoin.secp256k1.key.PrivateKey;
-import com.softwareverde.constable.bytearray.ByteArray;
-import com.softwareverde.util.HexUtil;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import cashx2.common.configurations.Version;
-import cashx2.common.configurations.AppConfiguration;
-
-import java.io.*;
+import java.io.File;
 
 public class AppMain extends Application {
     private static AppConfiguration appConfiguration = AppConfiguration.getInstance();
@@ -37,8 +32,8 @@ public class AppMain extends Application {
 
     //For storing purposes
     private final File appDataPath = new File(appConfiguration.getAppdata());
-    String storePath = appConfiguration.getAppdata() + "\\stored.csi";
-    private static PrivateKey privateKey;
+    private final File seedDataPath = new File(appConfiguration.getSeedFileDirectory());
+
 
     //For testing purposes
     private static String address;
@@ -65,40 +60,15 @@ public class AppMain extends Application {
     public  void init() throws Exception{
         //Start reading from memory
         if(!appDataPath.exists()){
-            File store = new File(storePath);
+            File store = new File(String.valueOf(seedDataPath));
             appDataPath.mkdirs();
             if(store.createNewFile()){
                 System.out.println("Created new store!");
             }
-            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(store));
-            privateKey = PrivateKey.createNewKey();
-            bufferedOutputStream.write(privateKey.getBytes());
-            bufferedOutputStream.flush();
-            bufferedOutputStream.close();
         }
-        if(privateKey != null){
-            AddressInflater addressInflater = new AddressInflater();
-            address = addressInflater.fromPrivateKey(privateKey).toBase58CheckEncoded();
-        }else{
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(storePath));
-            int character;
-            StringBuilder pK = new StringBuilder("");
-            while((character = bufferedInputStream.read()) != -1){
-                pK.append((char)character);
-            }
-            bufferedInputStream.close();
-            String hex = HexUtil.toHexString(pK.toString().getBytes());
-            ByteArray byteArray = ByteArray.fromHexString(hex);
-            privateKey = PrivateKey.fromBytes(byteArray);
-
-            wallet = new BchWallet();
-            wallet.addPrivateKey(privateKey);
-            ObservableList<String> addresses = FXCollections.observableArrayList(
-                    wallet.getReceivingAddress().toBase58CheckEncoded());
-            addressesView.setItems(addresses);
-            addressesView.setPrefWidth(500);
-            addressesView.setPrefHeight(400);
-        }
+        addressesView.setPrefWidth(500);
+        addressesView.setPrefHeight(400);
+        
         //We add the menu and construct the panes
         menuBar.getMenus().addAll(Home, Settings);
         addressPane.setPadding(new Insets(20));

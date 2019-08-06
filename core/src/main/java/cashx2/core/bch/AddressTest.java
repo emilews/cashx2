@@ -16,8 +16,5 @@ public class AddressTest {
             rand = (int)Math.random();
             mnemo.add(w.get(rand));
         }
-        
-
-
     }
 }

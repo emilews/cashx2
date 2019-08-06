@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00bccf64-7f40-4feb-8a24-f997e0ce3da0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/BchWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/BchWallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/configurations/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/AddressTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/AddressTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Gradle Kotlin DSL Settings" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,7 +78,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AddressTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="AddressTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cashx2.core.bch.AddressTest" />
       <module name="cashx2.core.main" />
@@ -185,6 +183,7 @@
       <workItem from="1564778530411" duration="6097000" />
       <workItem from="1564799076313" duration="3074000" />
       <workItem from="1565042205346" duration="7083000" />
+      <workItem from="1565125117298" duration="5215000" />
     </task>
     <servers />
   </component>
