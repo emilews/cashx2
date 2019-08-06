@@ -4,23 +4,18 @@ package cashx2.app;
 import cashx2.core.bch.BchWallet;
 import com.softwareverde.bitcoin.address.AddressInflater;
 import com.softwareverde.bitcoin.secp256k1.key.PrivateKey;
-import com.softwareverde.bitcoin.wallet.Wallet;
 import com.softwareverde.constable.bytearray.ByteArray;
 import com.softwareverde.util.HexUtil;
 import javafx.application.Application;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import cashx2.common.configurations.Version;
@@ -51,6 +46,20 @@ public class AppMain extends Application {
     //List View
     ListView<String> addressesView = new ListView<String>();
 
+
+    //Menu bars and views
+    Menu Home = new Menu("Home");
+    Menu Settings = new Menu("Settings");
+    MenuBar menuBar = new MenuBar();
+    VBox vBoxMenuBar = new VBox(menuBar);
+    VBox vBoxAddressList = new VBox(addressesView);
+
+    //Root Pane
+    BorderPane root = new BorderPane();
+    //Addresses pane
+    StackPane addressPane = new StackPane();
+    //Images
+    Image icon = new Image(getClass().getResourceAsStream("/images/icon.png"));
 
     @Override
     public  void init() throws Exception{
@@ -87,37 +96,25 @@ public class AppMain extends Application {
             ObservableList<String> addresses = FXCollections.observableArrayList(
                     wallet.getReceivingAddress().toBase58CheckEncoded());
             addressesView.setItems(addresses);
-            addressesView.setPrefWidth(100);
-            addressesView.setPrefHeight(70);
+            addressesView.setPrefWidth(500);
+            addressesView.setPrefHeight(400);
         }
+        //We add the menu and construct the panes
+        menuBar.getMenus().addAll(Home, Settings);
+        addressPane.setPadding(new Insets(20));
+        addressPane.getChildren().addAll(vBoxAddressList);
+        root.setTop(vBoxMenuBar);
+        root.setLeft(addressPane);
+
+
+
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         //App icon
-        Image icon = new Image(getClass().getResourceAsStream("/images/icon.png"));
         primaryStage.getIcons().add(icon);
-
-        //Menu for normal and slp tokens views
-        Menu Home = new Menu("Home");
-        Menu Settings = new Menu("Settings");
-        MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(Home, Settings);
-        VBox vBox = new VBox(menuBar);
-        VBox vBoxList = new VBox(addressesView);
-        //Testing
-        Button button = new Button("new PrivateKey");
-        button.setOnAction(event -> {
-            PrivateKey p = PrivateKey.createNewKey();
-            wallet.addPrivateKey(p);
-            ObservableList<String> address = FXCollections.observableArrayList(
-                    wallet.getReceivingAddress().toBase58CheckEncoded());
-            addressesView.setItems(address);
-            System.out.println(wallet.getReceivingAddress());
-        });
-
-        StackPane stackPane = new StackPane(vBoxList, button);
-        Scene mainScene = new Scene(stackPane,width,height);
+        Scene mainScene = new Scene(root,width,height);
         primaryStage.setScene(mainScene);
         primaryStage.setTitle(version.getAppName());
         primaryStage.setResizable(false);

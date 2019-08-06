@@ -1,3 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven{
+            url "https://jitpack.io"
+        }
+    }
+    dependencies {
+        //Bitcoin-Verde Dev
+        classpath group: 'com.github.softwareverde', name: 'bitcoin-verde', version: 'development-SNAPSHOT'
+
+        classpath files('C:/Users/csipro/Desktop/Workspace/cashx2/libs/bitcoinj-core-0.14-SNAPSHOT.jar')
+    }
+}
+
 plugins {
     id 'java'
     id 'org.openjfx.javafxplugin' version '0.0.7'
@@ -7,21 +23,55 @@ group 'com.emilews.cashx2'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-repositories {
-    mavenCentral()
-    maven { url 'https://jitpack.io' }
-}
 
 javafx {
     version = "12"
     modules = [ 'javafx.controls' ]
 }
 
-dependencies {
-    //Fonts and Icons
-    compile 'de.jensd:fontawesomefx-commons:11.0'
-    //Bitcoin-Verde Dev
-    implementation group: 'com.github.softwareverde', name: 'bitcoin-verde', version: 'development-SNAPSHOT'
+repositories {
+    mavenCentral()
+    jcenter()
+    maven{
+        url "https://jitpack.io"
+    }
+    flatDir {
+        dirs 'libs'
+    }
+}
+configure(subprojects) {
+    apply plugin: 'java'
+    apply plugin: 'com.google.osdetector'
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    sourceCompatibility = 1.8
+
+    ext {
+        bitcoinjVersion = '00298b1'
+
+        os = osdetector.os == 'osx' ? 'mac' : osdetector.os == 'windows' ? 'win' : osdetector.os
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        compile 'org.slf4j:slf4j-api:1.7.24'
+        compile 'org.slf4j:slf4j-simple:1.7.24'
+        compile 'com.google.guava:guava:20.0'
+        testCompile 'junit:junit:4.12'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+configure(project(':assets')){
+
+}
+configure(project(':core')){
+    dependencies {
+        compile files('C:/Users/csipro/Desktop/Workspace/cashx2/libs/bitcoinj-core-0.14-SNAPSHOT.jar')
+    }
 }
