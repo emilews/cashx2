@@ -46,7 +46,7 @@ configure(subprojects) {
     sourceCompatibility = 1.8
 
     ext {
-        bitcoinjVersion = '00298b1'
+        bitcoinjVersion = '015f980'
 
         os = osdetector.os == 'osx' ? 'mac' : osdetector.os == 'windows' ? 'win' : osdetector.os
     }
