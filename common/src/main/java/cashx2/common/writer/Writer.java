@@ -13,6 +13,10 @@ public class Writer {
     private AppConfiguration appConfiguration;
     private static Writer instance;
 
+    private Writer(){
+        //Nothing
+    }
+
     public static synchronized Writer getInstance(){
         if(instance == null){
             instance = new Writer();

@@ -5,19 +5,15 @@ import cashx2.common.configurations.AppConfiguration;
 import cashx2.common.configurations.Version;
 import cashx2.common.reader.Reader;
 import cashx2.common.writer.Writer;
+import cashx2.core.bch.BchWallet;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.bitcoinj.crypto.MnemonicCode;
 
@@ -27,6 +23,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppMain extends Application {
+    /*TODO: A refactor is needed in order to make this faster-ish for first time boot, moving stage
+       and scene creation to init() might solve this.
+       I think this approach is not the best. So, for a "mass adoption" (which I really don't see possible,
+       because the tech is made for devs/tech savy people), this needs to be quite the "ubiquitous software"
+       in which the user gets to do exactly what he wants without thinking (or even know) about, for example,
+       what kind of fee or "OP_CODE" to use.
+     */
+    /*
+    Since I am super bored, I'll tell you something about this place: it's hot as fuck!
+     */
     private static AppConfiguration appConfiguration = AppConfiguration.getInstance();
     private final Version version = Version.getInstance();
     private final int width = appConfiguration.getWidth();
@@ -37,6 +43,9 @@ public class AppMain extends Application {
     private final File appDataPath = new File(appConfiguration.getAppdata());
     private final File seedDataPath = new File(appConfiguration.getSeedFileDirectory());
     private final File store = new File(String.valueOf(seedDataPath));
+
+    //For wallet
+    BchWallet wallet = null;
 
     //For first time boot
     private MnemonicCode mnemonicCode = null;
@@ -61,14 +70,10 @@ public class AppMain extends Application {
         seedArea.setPrefWidth(300);
     }
     //Passphrase view from user
-    private TextArea passphrase1 = new TextArea();{
-        passphrase1.setPrefColumnCount(20);
-        passphrase1.setPrefRowCount(20);
+    private TextField passphrase1 = new TextField();{
         passphrase1.setPromptText("Type passphrase...");
     }
-    private TextArea passphrase2 = new TextArea();{
-        passphrase2.setPrefColumnCount(20);
-        passphrase2.setPrefRowCount(20);
+    private TextField passphrase2 = new TextField();{
         passphrase2.setPromptText("Retype passphrase...");
     }
 
@@ -113,6 +118,13 @@ public class AppMain extends Application {
                 wordList.add(s);
             }
             firstTime = true;
+            writer = Writer.getInstance();
+            writer.changeToSeedSave();
+            writer.saveSeed(wordList);
+        }else{
+            reader = Reader.getInstance();
+            wordList.addAll(reader.readSeed());
+            System.out.println(wordList);
         }
 
 
@@ -148,32 +160,11 @@ public class AppMain extends Application {
         primaryStage.setTitle(version.getAppName());
         primaryStage.setResizable(false);
         primaryStage.show();
-        if(firstTime){
-            Stage popup = new Stage();
-            BorderPane borderPane = new BorderPane();
-            VBox dialogVbox = new VBox(20);
-            dialogVbox.getChildren().add(new Text("Creating a new seed"));
-            borderPane.setTop(dialogVbox);
-            borderPane.setCenter(seedArea);
-            BorderPane passPane = new BorderPane();
-            passPane.setPrefWidth(50);
-            passPane.setCenter(passphrase1);
-            passPane.setBottom(passphrase2);
-            passPane.setPrefHeight(40);
-            borderPane.setBottom(passPane);
-            Scene popupScene = new Scene(borderPane, 800,600);
-
-            popup.getIcons().add(icon);
-            popup.setScene(popupScene);
-            popup.setTitle("New seed");
-            popup.initModality(Modality.APPLICATION_MODAL);
-            popup.initOwner(primaryStage);
-            popup.show();
-        }
     }
 
-    public void createDeterministicSeed(){
-
+    public void createWallet(){
+        String seed = String.join(",", wordList);
+        wallet = BchWallet.getInstance(seed, wordList);
     }
     public void saveSeed(){
 

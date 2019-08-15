@@ -4,7 +4,9 @@
     <list default="true" id="00bccf64-7f40-4feb-8a24-f997e0ce3da0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/AddressTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/AddressTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/reader/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/reader/Reader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/cashx2/common/writer/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/cashx2/common/writer/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/BchWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/cashx2/core/bch/BchWallet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/main/java/cashx2/app/AppMain.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,7 +186,11 @@
       <workItem from="1564799076313" duration="3074000" />
       <workItem from="1565042205346" duration="7083000" />
       <workItem from="1565125117298" duration="9828000" />
-      <workItem from="1565290373942" duration="9747000" />
+      <workItem from="1565290373942" duration="10349000" />
+      <workItem from="1565396314657" duration="2682000" />
+      <workItem from="1565484292223" duration="1968000" />
+      <workItem from="1565561908268" duration="3471000" />
+      <workItem from="1565796403483" duration="9377000" />
     </task>
     <servers />
   </component>
@@ -203,5 +209,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/src/main/java/cashx2/common/reader/Reader.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

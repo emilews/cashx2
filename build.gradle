@@ -60,6 +60,7 @@ configure(subprojects) {
         compile 'org.slf4j:slf4j-api:1.7.24'
         compile 'org.slf4j:slf4j-simple:1.7.24'
         compile 'com.google.guava:guava:20.0'
+        compile 'com.jfoenix:jfoenix:9.0.8'
         testCompile 'junit:junit:4.12'
     }
 
